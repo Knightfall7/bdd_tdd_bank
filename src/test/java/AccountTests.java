@@ -1,4 +1,4 @@
-import org.example.Account;
+import org.example.bank.Account;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -8,11 +8,24 @@ public class AccountTests {
     private Account account;
     @BeforeEach
     void setup(){
-        account = new Account(100);
+        int startBalance = 0;
+        account = new Account(startBalance);
     }
+
     @Test
-    public void testDeposit(){
-        account.deposit(50);
-        assertEquals(150, account.getBalance(), "balance should be 150 after depositing");
+    public void testGetBalance(){
+        var expected = 150;
+        var actual = account.getBalance();
+
+        assertEquals(expected, actual, "Account balance is 150 dollars");
+
+
     }
+      @Test
+      public void testDeposit(){
+        var expected = 1150;
+        var actual = account.getDeposit();
+        assertEquals(expected, actual, account.getDeposit(), "You made a 1000 dollars deposit");
+    }
+
 }
