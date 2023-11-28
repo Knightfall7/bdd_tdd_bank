@@ -1,18 +1,18 @@
 package org.example.bank;
 
 public class Account implements IAccount{
-    private int balance = 0;
+    private int balance;
     public Account(int startBalance){
         balance = startBalance;
 
     }
     @Override
     public int getBalance(){
-        return  150;
+        return  balance;
     }
 
     @Override
-    public int getDeposit() {
-        return 1150;
+    public void deposit(int amount) {
+        balance += amount;
     }
 }
